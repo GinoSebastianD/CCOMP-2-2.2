@@ -1,30 +1,43 @@
-//Car-pool Savings Calculator
 
 #include <iostream>
 
 int main(){
     using namespace std;
-    float miles_driven{0}, cost_gallon{0}, miles_per_gallon{0};
-    float parking{0}, tolls_day{0};
-    float cost_toll{13.5};
-    cout<<"Please enter the total miles you drive per day: ";
-    cin>> miles_driven;
-    cout<<"Cost per gallon of gasoline: ";
-    cin>> cost_gallon;
-    cout<<"Average miles per gallon: ";
-    cin>> miles_per_gallon;
-    cout<<"Parking fees per day: ";
-    cin>> parking;
-    cout<<"Tolls per day: ";
-    cin>> tolls_day;
+	    float millas_conducidas{0},costo_galón{0}, millas_por_galón{0};
+	    float estacionamiento{0}, peaje_día{0};
+	    float costo_peaje{13.5};
+    
+    
+    cout<<"Ingrese el total de millas que conduce por día: ";
+    cin>> millas_conducidas;
+    
+    
+    cout<<"Costo por galón de gasolina:";
+    cin>> costo_galón;
+    
+    
+    cout<<"Millas promedio por galón:";
+    cin>> millas_por_galón;
+    
+    
+    cout<<"Tarifas de estacionamiento por día:";
+    cin>> estacionamiento;
+    
+    
+    cout<<"Peajes por día: ";
+    cin>> peaje_día;
 
-    float gasoline_gallon = miles_driven/miles_per_gallon;
-    float cost_gasoline = cost_gallon*gasoline_gallon;
-    float tolls = tolls_day*cost_toll;
 
-    float cost_driving = cost_gasoline + tolls + parking;
 
-    cout<< "Your cost per day of driving to work is "<<cost_driving;
+    float galon_gasolina = millas_conducidas/millas_por_galón;
+    float costo_gasolina = costo_galón*galon_gasolina;
+    float peajes = peaje_día*costo_peaje;
+
+    float costo_conduccion = costo_gasolina + peajes + estacionamiento;
+    
+    
+
+    cout<< "Su costo por día de conducción al trabajo es "<<costo_conduccion;
 
     return 0;
 }
