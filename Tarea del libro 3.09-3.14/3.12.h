@@ -3,14 +3,10 @@
 using namespace std;
 class Fecha{
 public:
-    Fecha( int mes,int dia , int año):Mes(mes), Dia(dia),Año(año){}
+    Fecha( int mes,int dia , int año):Mes((mes >= 1 && mes <= 12) ? mes : 1), Dia(dia),Año(año){}
 
 void setmes(int mes) {
-    if (mes >= 1 && mes <= 12) {
-        Mes = mes;
-    } else {
-        Mes = 1;  
-    }
+    Mes=mes;
 }
 
 
@@ -37,7 +33,7 @@ int getaño() const{
 
 
 void displayDate() const{
-  cout<< "La fecha es: "<< getdia()<<"/"<< getmes()<<"/"<<getaño();
+  cout<< "La fecha es: "<<  getdia() <<"/"<< getmes()<<"/"<<getaño();
 }
 
 private:
