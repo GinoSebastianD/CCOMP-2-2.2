@@ -1,19 +1,23 @@
+/*2520 es el número más pequeño que se puede dividir por cada uno de los números del 1 al 10 sin resto.
+¿Cuál es el número positivo más pequeño que es divisible por todos los números del 1 al 20?
+*/
+
 #include <iostream>
-using namespace std;
-long long maximmo( long long a,  long long b)
+
+long long maximmo_divisor( long long x,  long long y)
 {
-    while(a!= 0)
+    while(x!= 0)
     {
-        long long z = b;
-        a = b % a;
-        b = z;
+        long long z = x;
+        x = y % x;
+        y = z;
     }
-    return b; 
+    return y; 
 }
 
- long long minimo( long long x,  long long y)
+ long long minimo_multiplo( long long a,  long long b)
     {
-        return x * (y / (maximmo_divisor(x,y)));
+        return a * (b / (maximmo_divisor(a,b)));
     }
 
 int main()
@@ -22,9 +26,9 @@ int main()
 
     for(int i = 2; i <= 20; ++i)
     {
-        resultado = minimo(resultado,i);
+        resultado = minimo_multiplo(resultado,i);
     }
 
-    cout << "El menor número que es divisible entre 1 a 20 es: "<< resultado << endl;
+    std::cout << "El menor número que es divisible entre 1 a 20 es: "<< resultado << std::endl;
     return 0;
 }
