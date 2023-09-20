@@ -5,54 +5,35 @@ Encuentra el palíndromo más grande hecho del producto de dos números de 3 dí
 
 #include <iostream>
 
-int revertir_num(int numero)
-{
-    int rev_num = 0;
-    int remanente = 0;
-    while(numero != 0)
-    {
-        remanente = numero % 10;
-        rev_num = rev_num * 10 + remanente;
-        numero /= 10;
-    }
-    return rev_num;
-}
-
-bool es_pal(int n)
-{
-    if(revertir_num(n) == n)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-int main()
-{
-    int producto{0};
-    int mayor_Pal{0};
+int encontrarPalindromo(int n){
+    int palin=0;
+    int num = n;
+    while(num>0){
+        palin=palin * 10 + (num % 10);
+        num = num / 10;
+        }
     
-    for(int i = 100; i < 1000; i++)
-    {
-        for(int j = 100; j < 1000; j++)
-        {
-            producto = i * j;   
-            if(es_pal(producto) && mayor_Pal == 0)
-            {
-                mayor_Pal = producto;
-            }
-            else if (es_pal(producto) && mayor_Pal != 0)
-            {
-                if(producto > mayor_Pal)
-                {
-                    mayor_Pal = producto;
+    if (n==palin){
+        return n;
+    }else{
+        return 1;
+    }
+}
+
+int palinMayor(){
+    for(int a=999*999; a>=100*100; a=a-1){
+        if (encontrarPalindromo(a) != 1){
+            for(int b=999; b>=100; b=b-1){
+                int c = a/b;
+                if (c>=100 && c<=999 && a%b==0){
+                    return a;
+                    break;
                 }
             }
         }
     }
-    std::cout << mayor_Pal << std::endl;
-    return 0;
+}
+
+int main(){
+    std::cout<< palinMayor();
 }
